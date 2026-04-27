@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+    tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#db7706", "background-light": "#f8f7f5", "background-dark": "#231a0f" }, fontFamily: { "display": ["Inter", "sans-serif"] } } } }
+</script>
+<title>Symphony | Manager Dashboard</title>
+</head>
+<body class="bg-background-light font-display text-slate-900">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+    <header class="flex items-center justify-between border-b border-primary/10 px-6 py-4 bg-white sticky top-0 z-50">
+        <div class="flex items-center gap-8">
+            <div class="flex items-center gap-3 text-primary">
+                <div class="flex items-center justify-center p-2 rounded-lg bg-primary/10"><span class="material-symbols-outlined font-bold">sync</span></div>
+                <h2 class="text-xl font-black">Symphony</h2>
+            </div>
+        </div>
+        <div class="flex flex-1 justify-end items-center gap-6">
+            <nav class="hidden lg:flex items-center gap-8">
+                <a class="text-primary text-sm font-semibold border-b-2 border-primary pb-1" href="#">Dashboard</a>
+                <!-- WIRED UP: Link to Manager Projects -->
+                <a class="text-slate-600 text-sm font-medium hover:text-primary" href="manager_project.html">Projects</a>
+                <a class="text-slate-600 text-sm font-bold hover:text-primary" href="index.html">Logout</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <div class="text-right hidden sm:block">
+                    <p class="text-sm font-bold">Eleanor Vance</p>
+                    <p class="text-[10px] text-primary font-medium uppercase mt-1">Project Manager</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 px-6 py-10 max-w-7xl mx-auto w-full">
+        <div class="mb-10">
+            <h1 class="text-4xl font-black tracking-tight">Soulful Workspace</h1>
+            <p class="text-slate-500 mt-2 text-lg">Good morning, Eleanor. Here's your high-level project data.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white rounded-2xl p-6 border border-primary/10 shadow-sm">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-2 bg-primary/10 text-primary rounded-lg"><span class="material-symbols-outlined">groups</span></div>
+                </div>
+                <p class="text-slate-500 text-sm font-medium">Total Active Teams</p>
+                <h3 class="text-3xl font-black mt-1">12</h3>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-primary/10 shadow-sm">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-2 bg-primary/10 text-primary rounded-lg"><span class="material-symbols-outlined">analytics</span></div>
+                </div>
+                <p class="text-slate-500 text-sm font-medium">Average Progress</p>
+                <h3 class="text-3xl font-black mt-1">74%</h3>
+            </div>
+            <div class="bg-primary/5 rounded-2xl p-6 border border-primary/20 flex flex-col justify-center">
+                <div class="flex items-center gap-3 mb-2 text-primary">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    <h3 class="font-bold text-lg">AI Insights</h3>
+                </div>
+                <p class="text-sm text-slate-600 italic">"Your Team Alpha is performing 15% faster than average."</p>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-black">Active Teams & Project Progress</h2>
+            <a href="manager_project.html" class="text-primary text-sm font-bold hover:underline flex items-center gap-1">View All Projects <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-2xl border border-primary/10 shadow-sm p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="text-[10px] font-bold uppercase text-slate-400">Object oriented programming</span>
+                    <span class="px-2 py-1 rounded text-[10px] font-bold uppercase bg-green-100 text-green-700">On Track</span>
+                </div>
+                <h4 class="text-lg font-bold mb-4">Smart Drone</h4>
+                <div class="mb-4">
+                    <div class="flex justify-between text-xs font-bold mb-1.5"><span>Completion</span><span class="text-primary">85%</span></div>
+                    <div class="w-full bg-primary/10 h-1.5 rounded-full"><div class="bg-primary h-full w-[85%]"></div></div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-primary/10 shadow-sm p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="text-[10px] font-bold uppercase text-slate-400">Object Oriented programming</span>
+                    <span class="px-2 py-1 rounded text-[10px] font-bold uppercase bg-amber-100 text-amber-700">Risk of Delay</span>
+                </div>
+                <h4 class="text-lg font-bold mb-4">3D RPG Game</h4>
+                <div class="mb-4">
+                    <div class="flex justify-between text-xs font-bold mb-1.5"><span>Completion</span><span class="text-amber-600">42%</span></div>
+                    <div class="w-full bg-primary/10 h-1.5 rounded-full"><div class="bg-amber-500 h-full w-[42%]"></div></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body></html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+    tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#db7706", "background-light": "#f8f7f5", "background-dark": "#231a0f" }, fontFamily: { "display": ["Inter"] } } } }
+</script>
+<title>Project Manager</title>
+</head>
+<body class="bg-background-light font-display text-slate-900 min-h-screen">
+<div class="relative flex flex-col min-h-screen">
+    <header class="sticky top-0 z-50 bg-background-light border-b border-primary/10 px-4 lg:px-10 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-8">
+            <div class="flex items-center gap-3">
+                <div class="bg-primary text-white p-2 rounded-lg flex items-center justify-center"><span class="material-symbols-outlined">school</span></div>
+                <h1 class="text-xl font-bold tracking-tight">Project Dashboard</h1>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+                <a class="text-sm font-medium text-slate-600 hover:text-primary" href="manager_dashboard.html">Dashboard</a>
+                <a class="text-sm font-semibold border-b-2 border-primary text-primary px-1 py-1" href="manager_project.html">Projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow px-4 lg:px-10 py-8 max-w-7xl mx-auto w-full">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+            <div>
+                <h2 class="text-3xl font-black tracking-tight">Active Learning Spaces</h2>
+                <p class="text-slate-500 mt-1">Review and manage your team distributions.</p>
+            </div>
+            <div class="flex gap-3">
+                <!-- WIRED UP: Create Project Button -->
+                <a href="create_project.html" class="flex items-center gap-2 bg-primary text-white hover:bg-primary/90 shadow-lg font-bold text-sm px-5 py-2.5 rounded-lg">
+                    <span class="material-symbols-outlined text-lg">add</span> Create Project
+                </a>
+            </div>
+        </div>
+
+        <!-- Project Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            
+            <!-- WIRED UP: Card links to Users page -->
+            <a href="project_users.html" class="group flex flex-col bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all cursor-pointer">
+                <div class="h-24 bg-gradient-to-br from-primary to-primary/60 p-4 relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-white font-bold text-lg leading-tight group-hover:underline">Global Expansion Q4</h3>
+                        <p class="text-white/80 text-xs mt-1">Operations</p>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 text-white/10"><span class="material-symbols-outlined text-7xl rotate-12">language</span></div>
+                </div>
+                <div class="p-4 flex-grow flex flex-col gap-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">groups</span><span class="text-sm font-bold">12 Teams</span></div>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-green-100 text-green-700">Active</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-slate-500">
+                        <span class="material-symbols-outlined text-lg">event</span><span class="text-xs font-medium">Deadline: Dec 15, 2024</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="project_users.html" class="group flex flex-col bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all cursor-pointer">
+                <div class="h-24 bg-gradient-to-br from-amber-600 to-amber-400 p-4 relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-white font-bold text-lg leading-tight group-hover:underline">Product Redesign</h3>
+                        <p class="text-white/80 text-xs mt-1">Tech</p>
+                    </div>
+                </div>
+                <div class="p-4 flex-grow flex flex-col gap-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">groups</span><span class="text-sm font-bold">8 Teams</span></div>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-green-100 text-green-700">Active</span>
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+    </main>
+</div>
+</body></html>

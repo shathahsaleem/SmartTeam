@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+    tailwind.config = { theme: { extend: { colors: { "primary": "#db7706", "background-light": "#f8f7f5" }, fontFamily: { "display": ["Inter", "sans-serif"], "serif": ["Lora", "serif"] } } } }
+</script>
+<title>Symphony | Big 5 Personality Quiz</title>
+</head>
+<body class="bg-background-light font-display text-slate-900 antialiased">
+<div class="relative flex min-h-screen w-full flex-col">
+    <header class="flex items-center justify-between border-b border-primary/10 px-6 py-4 lg:px-40">
+        <div class="flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white"><span class="material-symbols-outlined">storm</span></div>
+            <h2 class="text-xl font-bold">Symphony</h2>
+        </div>
+        <span class="text-sm font-medium text-slate-500">Step 2 of 3</span>
+    </header>
+
+    <main class="mx-auto flex w-full max-w-[800px] flex-1 flex-col px-6 py-8">
+        <div class="mb-8 text-center">
+            <span class="text-xs font-bold uppercase tracking-widest text-primary">The Big 5 Assessment</span>
+            <h1 class="font-serif text-3xl font-semibold mt-2">Rate yourself from 1 (Strongly Disagree) to 5 (Strongly Agree)</h1>
+        </div>
+
+        <form id="quizForm" class="rounded-3xl border border-primary/5 bg-white p-6 shadow-xl sm:p-10 space-y-8">
+            
+            <!-- Q1: Openness -->
+            <div class="space-y-4 border-b border-slate-100 pb-6">
+                <p class="font-bold text-lg">1. I love exploring new, highly creative ideas and abstract concepts.</p>
+                <div class="flex justify-between items-center max-w-sm mx-auto">
+                    <span class="text-xs text-slate-400">Disagree</span>
+                    <input type="radio" name="openness" value="1" required class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="openness" value="2" class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="openness" value="3" class="text-primary focus:ring-primary h-6 w-6">
+                    <input type="radio" name="openness" value="4" class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="openness" value="5" class="text-primary focus:ring-primary h-5 w-5">
+                    <span class="text-xs text-slate-400">Agree</span>
+                </div>
+            </div>
+
+            <!-- Q2: Conscientiousness -->
+            <div class="space-y-4 border-b border-slate-100 pb-6">
+                <p class="font-bold text-lg">2. I am highly organized, detail-oriented, and strictly follow schedules.</p>
+                <div class="flex justify-between items-center max-w-sm mx-auto">
+                    <span class="text-xs text-slate-400">Disagree</span>
+                    <input type="radio" name="conscientiousness" value="1" required class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="conscientiousness" value="2" class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="conscientiousness" value="3" class="text-primary focus:ring-primary h-6 w-6">
+                    <input type="radio" name="conscientiousness" value="4" class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="conscientiousness" value="5" class="text-primary focus:ring-primary h-5 w-5">
+                    <span class="text-xs text-slate-400">Agree</span>
+                </div>
+            </div>
+
+            <!-- Q3: Extraversion -->
+            <div class="space-y-4 border-b border-slate-100 pb-6">
+                <p class="font-bold text-lg">3. I thrive in highly social settings and naturally take charge of groups.</p>
+                <div class="flex justify-between items-center max-w-sm mx-auto">
+                    <span class="text-xs text-slate-400">Disagree</span>
+                    <input type="radio" name="extraversion" value="1" required class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="extraversion" value="2" class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="extraversion" value="3" class="text-primary focus:ring-primary h-6 w-6">
+                    <input type="radio" name="extraversion" value="4" class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="extraversion" value="5" class="text-primary focus:ring-primary h-5 w-5">
+                    <span class="text-xs text-slate-400">Agree</span>
+                </div>
+            </div>
+
+            <!-- Q4: Agreeableness -->
+            <div class="space-y-4 border-b border-slate-100 pb-6">
+                <p class="font-bold text-lg">4. I prioritize team harmony and deeply empathize with my coworkers.</p>
+                <div class="flex justify-between items-center max-w-sm mx-auto">
+                    <span class="text-xs text-slate-400">Disagree</span>
+                    <input type="radio" name="agreeableness" value="1" required class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="agreeableness" value="2" class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="agreeableness" value="3" class="text-primary focus:ring-primary h-6 w-6">
+                    <input type="radio" name="agreeableness" value="4" class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="agreeableness" value="5" class="text-primary focus:ring-primary h-5 w-5">
+                    <span class="text-xs text-slate-400">Agree</span>
+                </div>
+            </div>
+
+            <!-- Q5: Resilience (Inverse Neuroticism) -->
+            <div class="space-y-4 pb-6">
+                <p class="font-bold text-lg">5. I remain extremely calm and focused even under intense deadline pressure.</p>
+                <div class="flex justify-between items-center max-w-sm mx-auto">
+                    <span class="text-xs text-slate-400">Disagree</span>
+                    <input type="radio" name="resilience" value="1" required class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="resilience" value="2" class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="resilience" value="3" class="text-primary focus:ring-primary h-6 w-6">
+                    <input type="radio" name="resilience" value="4" class="text-primary focus:ring-primary h-5 w-5">
+                    <input type="radio" name="resilience" value="5" class="text-primary focus:ring-primary h-5 w-5">
+                    <span class="text-xs text-slate-400">Agree</span>
+                </div>
+            </div>
+
+            <button type="submit" class="w-full flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-lg font-bold text-white hover:bg-primary/90">
+                Calculate My Persona <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+        </form>
+    </main>
+</div>
+
+<script>
+    // Dictionary of Archetypes based on Highest Score!
+    const archetypes = {
+        openness: {
+            tag: "THE VISIONARY", title: "Architect of the Future",
+            desc: "Innovative, Strategic, and Future-Oriented. You see patterns where others see chaos and turn abstract ideas into reality.",
+            img: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        conscientiousness: {
+            tag: "THE ORGANIZER", title: "Master of Systems",
+            desc: "Detail-oriented, reliable, and structured. You are the backbone of any project, ensuring deadlines are met and quality is perfect.",
+            img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        extraversion: {
+            tag: "THE CATALYST", title: "Leader of the Pack",
+            desc: "Charismatic, energetic, and communicative. You naturally inspire others and drive team momentum forward.",
+            img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        agreeableness: {
+            tag: "THE HARMONIZER", title: "The Team Glue",
+            desc: "Empathetic, cooperative, and kind. You excel at resolving conflicts and ensuring everyone's voice is heard.",
+            img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        resilience: {
+            tag: "THE ANCHOR", title: "The Calm in the Storm",
+            desc: "Steady, focused, and unbothered by stress. When the project gets chaotic, people look to you for stability.",
+            img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        }
+    };
+
+    document.getElementById('quizForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // 1. Get user's scores
+        const scores = {
+            openness: parseInt(document.querySelector('input[name="openness"]:checked').value),
+            conscientiousness: parseInt(document.querySelector('input[name="conscientiousness"]:checked').value),
+            extraversion: parseInt(document.querySelector('input[name="extraversion"]:checked').value),
+            agreeableness: parseInt(document.querySelector('input[name="agreeableness"]:checked').value),
+            resilience: parseInt(document.querySelector('input[name="resilience"]:checked').value)
+        };
+
+        // 2. Find their highest trait
+        let highestTrait = 'openness';
+        let highestScore = scores.openness;
+
+        for (const trait in scores) {
+            if (scores[trait] > highestScore) {
+                highestScore = scores[trait];
+                highestTrait = trait;
+            }
+        }
+
+        // 3. Get the calculated archetype data
+        const myResult = archetypes[highestTrait];
+
+        // 4. Save to Browser Memory so the next page can read it!
+        localStorage.setItem('myPersonalityResult', JSON.stringify(myResult));
+
+        // 5. Save to MySQL database!
+        // We get the email they used to log in/register (you would store this during login)
+        const userEmail = localStorage.getItem('userEmail'); 
+        
+        if(userEmail) {
+            await fetch('http://localhost:3000/update-personality', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: userEmail, personalityType: myResult.tag })
+            });
+        }
+
+        // Move to results page
+        window.location.href = "personality_result.html";
+    });
+</script>
+</body></html>

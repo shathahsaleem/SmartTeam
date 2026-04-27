@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Symphony - Personality Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = { theme: { extend: { colors: { "primary": "#db7706", "background-light": "#f8f7f5" }, fontFamily: { "display": ["Inter", "sans-serif"], "serif": ["Playfair Display", "serif"] } } } }
+</script>
+<style> body { font-family: 'Inter', sans-serif; } .serif-font { font-family: 'Playfair Display', serif; } </style>
+</head>
+<body class="bg-background-light text-slate-900 antialiased py-12">
+    <main class="max-w-[960px] mx-auto px-6">
+        <div class="text-center mb-10">
+            <p class="text-primary font-semibold tracking-widest uppercase text-sm mb-2">Analysis Complete</p>
+            <h1 class="text-5xl font-bold font-serif">Your Personality Archetype</h1>
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-xl bg-white border border-primary/10 flex flex-col md:flex-row">
+            <!-- Dynamic Image -->
+            <div id="dynamicImage" class="w-full md:w-1/2 min-h-[300px] bg-cover bg-center transition-all duration-500"></div>
+            
+            <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                <!-- Dynamic Tag -->
+                <span id="dynamicTag" class="inline-block w-max px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold mb-4">LOADING...</span>
+                
+                <!-- Dynamic Title & Description -->
+                <h2 id="dynamicTitle" class="text-3xl md:text-4xl font-bold font-serif mb-4">Calculating...</h2>
+                <p id="dynamicDesc" class="text-slate-600 mb-8 leading-relaxed">Analyzing your responses...</p>
+                
+                <a href="user_dashboard.html" class="w-full flex items-center justify-center rounded-lg h-14 bg-primary text-white font-bold hover:bg-primary/90 transition-all">
+                    Go to My Dashboard
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- BEGINNER FRIENDLY JAVASCRIPT: Dynamic DOM Injection -->
+    <script>
+        // When the page loads, get the data saved from the quiz
+        const savedData = localStorage.getItem('myPersonalityResult');
+
+        if(savedData) {
+            // Convert it back from text to a JavaScript Object
+            const result = JSON.parse(savedData);
+
+            // Inject the data into the HTML elements using their IDs!
+            document.getElementById('dynamicTag').textContent = result.tag;
+            document.getElementById('dynamicTitle').textContent = result.title;
+            document.getElementById('dynamicDesc').textContent = result.desc;
+            document.getElementById('dynamicImage').style.backgroundImage = `url('${result.img}')`;
+        } else {
+            // Fallback just in case they bypassed the quiz
+            document.getElementById('dynamicTitle').textContent = "The Mystery";
+            document.getElementById('dynamicDesc').textContent = "Please take the quiz to see your accurate results!";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Symphony - AI Project Teams</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { "primary": "#db7706", "background-light": "#f8f7f5" }, fontFamily: { "display": ["Inter"] } } } }
+    </script>
+</head>
+<body class="bg-background-light font-display text-slate-900 min-h-screen flex flex-col">
+    <header class="flex items-center justify-between border-b border-primary/10 px-6 py-4 bg-white sticky top-0 z-50">
+        <div class="flex items-center gap-8">
+            <div class="flex items-center gap-3">
+                <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white"><span class="material-symbols-outlined">blur_on</span></div>
+                <h2 class="text-xl font-bold">Symphony</h2>
+            </div>
+            <!-- Manager Tabs -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="project_users.html" class="text-slate-600 text-sm font-medium hover:text-primary">Users</a>
+                <a href="project_teams.html" class="text-primary text-sm font-bold border-b-2 border-primary pb-1">Teams</a>
+            </nav>
+        </div>
+        <a href="manager_project.html" class="text-sm font-bold text-slate-500 hover:text-primary">Back to Projects</a>
+    </header>
+
+    <main class="flex flex-1 justify-center py-8">
+        <div class="max-w-[1200px] w-full px-6 flex flex-col gap-8">
+            
+            <div class="flex flex-col gap-2">
+                <h1 class="text-4xl font-black">Project Teams</h1>
+                <p class="text-slate-500 max-w-2xl">Manage your workforce with AI-powered team composition. We analyze technical skills, personality traits, and workload to suggest optimal synergy.</p>
+            </div>
+
+            <!-- AI Generation Action Button -->
+            <div id="generateBox" class="bg-gradient-to-r from-primary/10 to-transparent p-8 rounded-2xl border border-primary/20 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-5">
+                    <div class="size-14 bg-primary text-white rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-3xl">auto_awesome</span>
+                    </div>
+                    <div>
+                        <h3 id="generateStatus" class="text-xl font-bold">Ready to create teams!</h3>
+                        <p class="text-slate-600 text-sm">Algorithm checks: All users enrolled and quizzes complete.</p>
+                    </div>
+                </div>
+                <!-- WIRED UP: Button triggers JS animation -->
+                <button id="generateBtn" class="flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-bold shadow-lg hover:bg-primary/90 transition-all">
+                    <span class="material-symbols-outlined">magic_button</span> Generate Teams
+                </button>
+            </div>
+
+            <!-- Team Grid (HIDDEN BY DEFAULT) -->
+            <div id="teamsGrid" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-6">
+                
+                <!-- Team Card 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col gap-6 hover:shadow-xl">
+                    <div class="flex justify-between items-start">
+                        <div class="flex items-center gap-2">
+                            <span class="size-3 bg-green-500 rounded-full animate-pulse"></span>
+                            <h3 class="text-xl font-bold">Team Alpha</h3>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <span class="text-3xl font-black text-primary">98%</span>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase">Compatibility</span>
+                        </div>
+                    </div>
+                    <div class="bg-primary/5 rounded-xl p-4 border border-primary/10">
+                        <div class="flex items-center gap-2 text-primary mb-2">
+                            <span class="material-symbols-outlined text-lg">insights</span>
+                            <span class="text-xs font-bold uppercase">AI Synergy Insights</span>
+                        </div>
+                        <p class="text-sm italic text-slate-700">"This team is highly collaborative and is expected to complete the project 15% faster due to complementary technical skills."</p>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h4 class="text-sm font-bold text-slate-400 uppercase">Members</h4>
+                        <p class="text-sm font-medium">Alex Morgan (Frontend), Sarah Kim (Backend), Jordan Davies (DB)</p>
+                    </div>
+                </div>
+
+                <!-- Team Card 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col gap-6 hover:shadow-xl">
+                    <div class="flex justify-between items-start">
+                        <div class="flex items-center gap-2">
+                            <span class="size-3 bg-amber-500 rounded-full"></span>
+                            <h3 class="text-xl font-bold">Team Omega</h3>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <span class="text-3xl font-black text-primary">89%</span>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase">Compatibility</span>
+                        </div>
+                    </div>
+                    <div class="bg-primary/5 rounded-xl p-4 border border-primary/10">
+                        <div class="flex items-center gap-2 text-primary mb-2">
+                            <span class="material-symbols-outlined text-lg">insights</span>
+                            <span class="text-xs font-bold uppercase">AI Synergy Insights</span>
+                        </div>
+                        <p class="text-sm italic text-slate-700">"Creative potential is maximized. Maria's detail-oriented design approach perfectly complements Ben's modular coding style."</p>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h4 class="text-sm font-bold text-slate-400 uppercase">Members</h4>
+                        <p class="text-sm font-medium">Maria Lopez (UI/UX), Ben Tiller (React Dev), Tom Cruise (QA)</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Logic to simulate AI grouping
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            const btn = this;
+            const status = document.getElementById('generateStatus');
+            const grid = document.getElementById('teamsGrid');
+
+            // 1. Change to Loading state
+            btn.innerHTML = `<span class="material-symbols-outlined animate-spin">sync</span> Calculating...`;
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+            btn.disabled = true;
+            status.textContent = "AI Algorithm is analyzing personalities...";
+
+            // 2. Wait 2.5 seconds, then reveal!
+            setTimeout(() => {
+                document.getElementById('generateBox').classList.add('hidden'); // Hide the box
+                grid.classList.remove('hidden'); // Unhide the teams!
+            }, 2500);
+        });
+    </script>
+</body>
+</html>

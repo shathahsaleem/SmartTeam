@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Symphony - Create New Project</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { "primary": "#db7706", "background-light": "#f8f7f5", "background-dark": "#231a0f" }, fontFamily: { "display": ["Inter", "sans-serif"] } } } }
+    </script>
+</head>
+<body class="bg-background-light font-display text-slate-900 antialiased">
+    <div class="relative flex min-h-screen w-full flex-col">
+        <header class="flex items-center justify-between border-b border-primary/10 px-10 py-3 bg-white sticky top-0 z-50">
+            <div class="flex items-center gap-4">
+                <div class="size-8 flex items-center justify-center bg-primary rounded-lg text-white"><span class="material-symbols-outlined">blur_on</span></div>
+                <h2 class="text-xl font-bold uppercase">Symphony</h2>
+            </div>
+            <a href="manager_dashboard.html" class="text-sm font-bold text-slate-500 hover:text-primary">Back to Dashboard</a>
+        </header>
+
+        <main class="flex-1 flex justify-center py-10 px-4">
+            <div class="max-w-[1000px] w-full gap-8">
+                <div class="bg-white p-8 rounded-xl border border-primary/10 shadow-sm mb-6">
+                    <h1 class="text-3xl font-black mb-2">Project Parameters</h1>
+                    <p class="text-slate-500 mb-8">Define the core structure of your new initiative.</p>
+                    
+                    <form id="createProjectForm" class="flex flex-col gap-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-bold">Project Title</label>
+                                <input id="projTitle" class="rounded-lg border-slate-200 focus:border-primary" placeholder="e.g. Q4 Logistics Optimization" type="text" required/>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-bold">Field/Industry</label>
+                                <select id="projIndustry" class="rounded-lg border-slate-200 focus:border-primary">
+                                    <option value="Technology & SaaS">Technology & SaaS</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Business">Business</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-bold">Deadline</label>
+                                <input id="projDeadline" class="w-full rounded-lg border-slate-200 focus:border-primary" type="date" required/>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-bold">Members per Team</label>
+                                <input id="projTeamSize" class="w-full rounded-lg border-slate-200 focus:border-primary" type="number" min="2" max="10" value="4" required/>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-primary/90 flex items-center justify-center gap-3">
+                            <span class="material-symbols-outlined">bolt</span> Generate Project & Join Code
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('createProjectForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const projectData = {
+                title: document.getElementById('projTitle').value,
+                industry: document.getElementById('projIndustry').value,
+                deadline: document.getElementById('projDeadline').value,
+                teamSize: document.getElementById('projTeamSize').value,
+                managerEmail: localStorage.getItem('userEmail') // From login
+            };
+
+            const response = await fetch('http://localhost:3000/create-project', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(projectData)
+            });
+
+            const result = await response.json();
+            
+            if(result.success) {
+                alert("Project Created! Your generated Join Code is: " + result.joinCode);
+                localStorage.setItem('managerCurrentCode', result.joinCode);
+                localStorage.setItem('managerCurrentProject', projectData.title);
+                window.location.href = "project_users.html"; // Send manager to user dashboard
+            } else {
+                alert(result.message);
+            }
+        });
+    </script>
+</body>
+</html>

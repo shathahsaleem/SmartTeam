@@ -3,164 +3,129 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    
+    <!-- FIX: Ultra-reliable standard Google Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <script id="tailwind-config">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <script>
         tailwind.config = {
-            darkMode: "class",
             theme: {
                 extend: {
-                    colors: {
-                        "primary": "#db7706",
-                        "background-light": "#f8f7f5",
-                        "background-dark": "#231a0f",
-                    },
-                    fontFamily: {
-                        "display": ["Inter"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
-            },
+                    colors: { "primary": "#db7706", "background-light": "#f8f7f5" },
+                    fontFamily: { "display": ["Inter"] }
+                }
+            }
         }
     </script>
     <title>Symphony - Initialize Your Account</title>
 </head>
-<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<body class="font-display bg-background-light text-slate-900 antialiased">
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-    <div class="layout-container flex h-full grow flex-col">
-        <!-- Navigation -->
-        <header class="flex items-center justify-between border-b border-primary/10 px-6 py-4 lg:px-20">
-            <div class="flex items-center gap-3 text-primary">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
-                    <span class="material-symbols-outlined">account_tree</span>
-                </div>
-                <h2 class="text-xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100">Symphony</h2>
+    <header class="flex items-center justify-between border-b border-primary/10 px-6 py-4 lg:px-20">
+        <div class="flex items-center gap-3 text-primary">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
+                <span class="material-icons">account_tree</span>
             </div>
-            <div class="hidden md:block">
-                <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Already have an account? <a class="text-primary hover:underline" href="login.html">Log in</a></p>
+            <h2 class="text-xl font-bold">Symphony</h2>
+        </div>
+        <div class="hidden md:block">
+            <p class="text-sm font-medium text-slate-500">Already have an account? <a class="text-primary hover:underline" href="login.html">Log in</a></p>
+        </div>
+    </header>
+
+    <main class="flex flex-1 items-center justify-center py-12 px-4 md:px-6">
+        <div class="w-full max-w-[520px] space-y-8 rounded-xl bg-white p-8 shadow-sm border border-slate-200">
+            <div class="space-y-2">
+                <h1 class="text-3xl font-extrabold md:text-4xl">Initialize Your Account.</h1>
+                <p class="text-base text-slate-500">Select your professional role to begin optimizing your team flows.</p>
             </div>
-        </header>
 
-        <main class="flex flex-1 items-center justify-center py-12 px-4 md:px-6">
-            <div class="w-full max-w-[520px] space-y-8 rounded-xl bg-white p-8 shadow-sm dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
-                
-                <!-- Header Section -->
-                <div class="space-y-2">
-                    <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white md:text-4xl">Initialize Your Account.</h1>
-                    <p class="text-base text-slate-500 dark:text-slate-400">Select your professional role to begin optimizing your team flows.</p>
-                </div>
-
-                <!-- Registration Form -->
-                <form id="registerForm" class="space-y-6">
-                    
-                    <!-- FIX: Role Selection Cards -->
-                    <div class="space-y-3">
-                        <p class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Identify your role</p>
+            <form id="registerForm" class="space-y-6">
+                <div class="space-y-3">
+                    <p class="text-sm font-semibold uppercase tracking-wider text-slate-500">Identify your role</p>
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         
-                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                            
-                            <!-- Project Member Card -->
-                            <label class="relative flex cursor-pointer flex-col rounded-lg border-2 p-4 transition-all duration-200 border-slate-200 bg-transparent hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5">
-                                <input checked name="role" type="radio" value="member" class="sr-only peer">
-                                
-                                <!-- Icon (Turns orange when checked) -->
-                                <span class="material-symbols-outlined mb-2 text-slate-400 peer-checked:text-primary transition-colors">groups</span>
-                                
-                                <span class="block text-sm font-bold text-slate-900 dark:text-white">Project Member</span>
-                                <span class="block text-xs text-slate-500 dark:text-slate-400">Join existing teams and collaborate</span>
-                                
-                                <!-- Checkmark (Only visible when checked) -->
-                                <div class="absolute top-2 right-2 text-primary hidden peer-checked:block">
-                                    <span class="material-symbols-outlined text-base">check_circle</span>
-                                </div>
-                            </label>
-
-                            <!-- Project Manager Card -->
-                            <label class="relative flex cursor-pointer flex-col rounded-lg border-2 p-4 transition-all duration-200 border-slate-200 bg-transparent hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5">
-                                <input name="role" type="radio" value="manager" class="sr-only peer">
-                                
-                                <!-- Icon (Turns orange when checked) -->
-                                <span class="material-symbols-outlined mb-2 text-slate-400 peer-checked:text-primary transition-colors">settings_suggest</span>
-                                
-                                <span class="block text-sm font-bold text-slate-900 dark:text-white">Project Manager</span>
-                                <span class="block text-xs text-slate-500 dark:text-slate-400">Create and oversee multiple teams</span>
-                                
-                                <!-- Checkmark (Only visible when checked) -->
-                                <div class="absolute top-2 right-2 text-primary hidden peer-checked:block">
-                                    <span class="material-symbols-outlined text-base">check_circle</span>
-                                </div>
-                            </label>
-
-                        </div>
-                    </div>
-
-                    <!-- Input Fields -->
-                    <div class="space-y-4">
-                        <div class="flex flex-col gap-2">
-                            <label class="text-sm font-medium leading-none text-slate-900 dark:text-slate-200">Full Name</label>
-                            <input id="fullName" class="flex h-12 w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 text-sm ring-offset-white placeholder:text-slate-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-100" placeholder="John Doe" type="text" required>
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label class="text-sm font-medium leading-none text-slate-900 dark:text-slate-200">Business Email</label>
-                            <input id="email" class="flex h-12 w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 text-sm ring-offset-white placeholder:text-slate-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-100" placeholder="name@company.com" type="email" required>
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label class="text-sm font-medium leading-none text-slate-900 dark:text-slate-200">Password</label>
-                            <div class="relative flex items-center">
-                                <input id="password" class="flex h-12 w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 text-sm ring-offset-white placeholder:text-slate-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-100" placeholder="Create a secure password" type="password" required>
-                                <button class="absolute right-3 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300" type="button">
-                                    <span class="material-symbols-outlined">visibility</span>
-                                </button>
+                        <!-- Member Card -->
+                        <label class="relative flex cursor-pointer flex-col rounded-lg border-2 p-4 transition-all duration-200 border-slate-200 bg-transparent hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+                            <input checked name="role" type="radio" value="member" class="sr-only peer">
+                            <span class="material-icons mb-2 text-slate-400 peer-checked:text-primary transition-colors">groups</span>
+                            <span class="block text-sm font-bold">Project Member</span>
+                            <div class="absolute top-2 right-2 text-primary hidden peer-checked:block">
+                                <span class="material-icons text-base">check_circle</span>
                             </div>
+                        </label>
+
+                        <!-- Manager Card -->
+                        <label class="relative flex cursor-pointer flex-col rounded-lg border-2 p-4 transition-all duration-200 border-slate-200 bg-transparent hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+                            <input name="role" type="radio" value="manager" class="sr-only peer">
+                            <!-- Changed to manage_accounts for a better manager icon -->
+                            <span class="material-icons mb-2 text-slate-400 peer-checked:text-primary transition-colors">manage_accounts</span>
+                            <span class="block text-sm font-bold">Project Manager</span>
+                            <div class="absolute top-2 right-2 text-primary hidden peer-checked:block">
+                                <span class="material-icons text-base">check_circle</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex flex-col gap-2">
+                        <label class="text-sm font-medium">Full Name</label>
+                        <input id="fullName" class="flex h-12 w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="John Doe" type="text" required>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-sm font-medium">Business Email</label>
+                        <input id="email" class="flex h-12 w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="name@company.com" type="email" required>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-sm font-medium">Password</label>
+                        <div class="relative flex items-center">
+                            <input id="password" class="flex h-12 w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="Create a secure password" type="password" required>
+                            <button id="togglePasswordBtn" class="absolute right-3 text-slate-400 hover:text-slate-600" type="button">
+                                <span id="toggleIcon" class="material-icons text-lg">visibility</span>
+                            </button>
                         </div>
                     </div>
-
-                    <div class="pt-2">
-                        <button class="inline-flex h-12 w-full items-center justify-center rounded-lg bg-primary px-6 text-base font-semibold text-white transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20" type="submit">
-                            Create Professional Account
-                        </button>
-                    </div>
-
-                    <p class="text-center text-xs text-slate-500 dark:text-slate-400">
-                        By clicking "Create Account", you agree to our 
-                        <a class="font-medium text-primary hover:underline" href="#">Terms of Service</a> and 
-                        <a class="font-medium text-primary hover:underline" href="#">Privacy Policy</a>.
-                    </p>
-                </form>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="mt-auto flex justify-center py-8">
-            <div class="flex items-center gap-6">
-                <div class="flex items-center gap-2 grayscale opacity-50">
-                    <span class="material-symbols-outlined text-lg">verified_user</span>
                 </div>
-                <div class="h-4 w-px bg-slate-300 dark:bg-slate-700"></div>
-                <div class="flex items-center gap-2 grayscale opacity-50">
-                    <span class="material-symbols-outlined text-lg">cloud_done</span>
+
+                <div class="pt-2">
+                    <button class="inline-flex h-12 w-full items-center justify-center rounded-lg bg-primary px-6 text-base font-semibold text-white hover:bg-primary/90" type="submit">
+                        Create Professional Account
+                    </button>
                 </div>
-            </div>
-        </footer>
-    </div>
+            </form>
+        </div>
+    </main>
 </div>
 
-<!-- BACKEND JAVASCRIPT -->
 <script>
-    // --- 2. Database Registration Logic ---
-    document.getElementById('registerForm').addEventListener('submit', async function(e) {
-        e.preventDefault(); // Stop page from refreshing
+    // Toggle Password Visibility Logic
+    const passwordInput = document.getElementById('password');
+    const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+    const toggleIcon = document.getElementById('toggleIcon');
 
-        // Find which role is checked
+    togglePasswordBtn.addEventListener('click', function() {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text'; 
+            toggleIcon.textContent = 'visibility_off'; 
+        } else {
+            passwordInput.type = 'password'; 
+            toggleIcon.textContent = 'visibility'; 
+        }
+    });
+
+    // Database Registration & Routing Logic
+    document.getElementById('registerForm').addEventListener('submit', async function(e) {
+        e.preventDefault(); 
+
         const roleRadios = document.getElementsByName('role');
         let selectedRole = 'member';
         for(let radio of roleRadios) {
             if(radio.checked) selectedRole = radio.value;
         }
 
-        // Package the data
         const userData = {
             fullName: document.getElementById('fullName').value,
             email: document.getElementById('email').value,
@@ -169,7 +134,8 @@
         };
 
         try {
-            // Send data to your Node.js server
+            localStorage.setItem('userEmail', userData.email);
+
             const response = await fetch('http://localhost:3000/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -179,8 +145,13 @@
             const result = await response.json();
             
             if(result.success) {
-                alert("Account successfully created in MySQL! Let's take the quiz.");
-                window.location.href = "personality_quiz.html";
+                if(selectedRole === 'manager') {
+                    alert("Account successfully created! Welcome to the Manager Dashboard.");
+                    window.location.href = "manager_dashboard.html";
+                } else {
+                    alert("Account successfully created! Let's take your personality quiz.");
+                    window.location.href = "personality_quiz.html";
+                }
             } else {
                 alert("Error: " + result.message);
             }
